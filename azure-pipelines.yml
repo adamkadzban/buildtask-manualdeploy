@@ -1,0 +1,31 @@
+# Starter pipeline
+# Start with a minimal pipeline that you can customize to build and deploy your code.
+# Add steps that build, run tests, deploy, and more:
+# https://aka.ms/yaml
+
+trigger: none
+pr: none
+
+pool:
+  vmImage: vs2017-win2016
+
+parameters:
+  - name: RAPVersion
+    type: string
+    default: 1.2.3.4
+  - name: PodName
+    type: string
+    default: ctus010000
+  - name: TenantIDs
+    type: string
+    default: 001,002
+  - name: CRID
+    type: string
+
+steps:
+  - task: BuildTask-ManualDeploy-PodTenant@0
+    inputs:
+      RAPVersion: '${{ parameters.RAPVersion }}'
+      PodName: '${{ parameters.PodName }}'
+      TenantIDs: '${{ parameters.TenantIDs }}'
+      ServiceDeskCRId: '${{ parameters.CRID }}'
