@@ -21,6 +21,7 @@ parameters:
     default: 001,002
   - name: CRID
     type: string
+    default: ''
 
 steps:
   - task: BuildTask-ManualDeploy-PodTenant@0
