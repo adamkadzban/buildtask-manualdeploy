@@ -1,0 +1,61 @@
+{
+    "id": "6685c4ab-49ac-59af-aeb1-6eb9eebc2fa6",
+    "name": "BuildTask-ManualDeploy-PodTenant",
+    "friendlyName": "BuildTask-ManualDeploy-PodTenant",
+    "description": "This build task takes all Manual Deploy parameters for pod-tenant deploy.",
+    "helpMarkDown": "[More Information](https://github.com/adamkadzban/buildtask-manualdeploy)",
+	"category": "Package",
+    "author": "AdamKadzban-Relativity",
+    "version": {
+        "Major": 0,
+        "Minor": 1,
+        "Patch": 2
+    },
+    "minimumAgentVersion": "2.131.0",
+    "instanceNameFormat": "BuildTask-ManualDeploy-PodTenant",
+    "inputs": [
+		{
+            "name": "RAPVersion",
+            "type": "string",
+            "label": "Version of the RAP you wish to deploy.",
+            "helpMarkDown": "Version of the RAP you wish to deploy, e.g. 1.2.3.4. Not the NuGet package version!",
+            "required": true,
+			"defaultValue" : ""
+        },
+        {
+            "name": "PodName",
+            "type": "string",
+            "label": "The pod that you wish to deploy to.",
+            "helpMarkdown": "The pod that you wish to deploy to, e.g. ctus010000",
+            "required": false
+        },
+        {
+            "name": "TenantIDs",
+            "type": "string",
+            "label": "The comma separated list of tenants that you wish to deploy to (no spaces).",
+            "helpMarkdown": "The comma separated list of tenants that you wish to deploy to (no spaces), e.g. 000,012,013",
+            "required": false
+        },
+        {
+            "name": "ServiceDeskCRId",
+            "type": "string",
+            "label": "The Jira Service Desk Change Request issue key.",
+            "helpMarkdown": "The Jira Service Desk Change Request issue key. Only needed for Rings >= 1, and if you are not approved for Standard CRs.",
+            "required": false
+        },
+        {
+            "name": "ExecuteRollback",
+            "type": "boolean",
+            "label": "Check this box to execute a rollback deployment to the rapVersion specified.",
+            "helpMarkdown": "Check this box to execute a rollback deployment to the rapVersion specified.",
+            "required": false
+        }
+    ],
+    "execution": {
+        "PowerShell3": {
+            "target": "$(currentDirectory)\\MyCustomTask.ps1",
+            "argumentFormat": "",
+            "workingDirectory": ""
+        }
+    }
+}

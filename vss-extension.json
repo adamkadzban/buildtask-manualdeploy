@@ -1,0 +1,62 @@
+{
+    "manifestVersion": 1,
+    "id": "buildtask-manualdeploy",
+    "name": "Build Task written in Powershell",
+    "version": "0.1.2",
+    "publisher": "AdamKadzban-Relativity",
+    "targets": [
+        {
+            "id": "Microsoft.VisualStudio.Services"
+        }
+    ],
+    "description": "Powershell build tasks that don't do anything but serve as a user workflow POC.",
+    "categories": [
+        "Azure Pipelines"
+    ],
+    "icons": {
+        "default": "images/extension-icon.png"
+    },
+    "files": [
+        {
+            "path": "task-manualdeploy-all"
+        },
+        {
+            "path": "task-manualdeploy-ring"
+        },
+        {
+            "path": "task-manualdeploy-podtenant"
+        }
+    ],
+    "contributions": [
+        {
+            "id": "custom-buildtask-manualdeploy-all",
+            "type": "ms.vss-distributed-task.task",
+            "targets": [
+                "ms.vss-distributed-task.tasks"
+            ],
+            "properties": {
+                "name": "task-manualdeploy-all"
+            }
+        },
+        {
+            "id": "custom-buildtask-manualdeploy-ring",
+            "type": "ms.vss-distributed-task.task",
+            "targets": [
+                "ms.vss-distributed-task.tasks"
+            ],
+            "properties": {
+                "name": "task-manualdeploy-ring"
+            }
+        },
+        {
+            "id": "custom-buildtask-manualdeploy-podtenant",
+            "type": "ms.vss-distributed-task.task",
+            "targets": [
+                "ms.vss-distributed-task.tasks"
+            ],
+            "properties": {
+                "name": "task-manualdeploy-podtenant"
+            }
+        }
+    ]
+}
